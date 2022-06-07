@@ -35,3 +35,8 @@ yarn test
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.
+
+### Backend
+
+Open [https://github.com/and-dzh3/ws-srv](https://github.com/and-dzh3/ws-srv)
+

@@ -45,7 +45,7 @@ describe('Thermostat', () => {
     result.current.temperatureHistory.forEach((temperature) => {
       const difference = currentTimestampDate - temperature.timestamp
       const minutesDifference = Math.floor(difference / 1000 / 60)
-      expect(minutesDifference).toBeGreaterThanOrEqual(-5)
+      expect(minutesDifference).toBeLessThanOrEqual(5)
       expect(temperature.data).toBeLessThanOrEqual(100)
     })
   })
