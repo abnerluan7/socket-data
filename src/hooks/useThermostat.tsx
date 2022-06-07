@@ -5,6 +5,7 @@ import {
   checkIsLastTemperature,
   checkNeedNewMessage,
   checkTemperatureValid,
+  currentTime,
   useToast
 } from '@/utils/TemperatureUtils'
 
@@ -25,8 +26,7 @@ const ThermostatContext = createContext<TypesThisContext>(
 )
 
 export const ThermostatProvider: React.FC<MyProps> = ({ children }) => {
-  const currentTime = useMemo(() => new Date().getTime(), [])
-  const [lastMessageTime, setLastMessage] = useState(new Date().getTime())
+  const [lastMessageTime, setLastMessage] = useState(currentTime())
   const [temperatureHistory, setTemperatureHistory] = useState<Temperature[]>(
     []
   )
@@ -48,14 +48,14 @@ export const ThermostatProvider: React.FC<MyProps> = ({ children }) => {
     if (lastMessage !== null && checkNeedNewMessage(lastMessageTime)) {
       const newThermostat: Temperature[] = JSON.parse(lastMessage.data)
       makeTemperatures(newThermostat)
-      setLastMessage(new Date().getTime())
+      setLastMessage(currentTime())
     }
   }, [lastMessage])
 
   const makeTemperatures = (newThermostat: Temperature[]) => {
     let newTemperatureHistory: Temperature[] = []
     newThermostat.forEach((temperature) => {
-      if (checkTemperatureValid(currentTime, temperature)) {
+      if (checkTemperatureValid(currentTime(), temperature)) {
         newTemperatureHistory.push(temperature)
       }
     })
@@ -63,7 +63,7 @@ export const ThermostatProvider: React.FC<MyProps> = ({ children }) => {
     setTemperatureHistory((prev) => {
       const acceptableTemperatures: Temperature[] = []
       prev.forEach((oldTemperature) => {
-        if (checkTemperatureValid(currentTime, oldTemperature)) {
+        if (checkTemperatureValid(currentTime(), oldTemperature)) {
           acceptableTemperatures.push(oldTemperature)
         }
       })

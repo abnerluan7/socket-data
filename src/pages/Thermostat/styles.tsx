@@ -8,5 +8,8 @@ export const Content = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: flex-end;
 `
-export const TextContent = styled.div``
+export const TextContent = styled.div`
+  margin: 20px;
+`

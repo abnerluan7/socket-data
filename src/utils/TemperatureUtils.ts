@@ -7,10 +7,10 @@ export const checkTemperatureValid = (
   currentTime: number,
   temperature: Temperature
 ): boolean => {
-  const difference = currentTime - temperature.timestamp
+  const difference = temperature.timestamp - currentTime
   const minutesDifference = Math.floor(difference / 1000 / 60)
   if (temperature.data <= 100) {
-    return minutesDifference >= -5
+    return minutesDifference <= 5
   }
   return false
 }
@@ -69,7 +69,11 @@ export const useToast = {
 }
 
 export const checkNeedNewMessage = (lastMessageTime: number): boolean => {
-  const difference = new Date().getTime() - lastMessageTime
+  const difference = currentTime() - lastMessageTime
   const minutesDifference = Math.floor(difference / 1000)
   return minutesDifference >= 2
+}
+
+export const currentTime = (): number => {
+  return new Date().getTime()
 }

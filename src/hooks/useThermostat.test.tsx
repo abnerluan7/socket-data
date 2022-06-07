@@ -1,4 +1,4 @@
-import { checkIsLastTemperature } from '@/utils/TemperatureUtils'
+import { checkIsLastTemperature, currentTime } from '@/utils/TemperatureUtils'
 import { renderHook, act } from '@testing-library/react-hooks'
 
 import { ThermostatProvider, useThermostat, MyProps } from './useThermostat'
@@ -32,7 +32,7 @@ describe('Thermostat', () => {
     const wrapper = ({ children }: MyProps) => (
       <ThermostatProvider>{children}</ThermostatProvider>
     )
-    const currentTimestampDate = new Date().getTime()
+    const currentTimestampDate = currentTime()
     const { result } = renderHook(() => useThermostat(), { wrapper })
 
     act(() => {
@@ -54,7 +54,7 @@ describe('Thermostat', () => {
     const wrapper = ({ children }: MyProps) => (
       <ThermostatProvider>{children}</ThermostatProvider>
     )
-    const currentTimestampDate = new Date().getTime()
+    const currentTimestampDate = currentTime()
     const { result } = renderHook(() => useThermostat(), { wrapper })
 
     act(() => {

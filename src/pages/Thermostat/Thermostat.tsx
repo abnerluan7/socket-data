@@ -10,18 +10,19 @@ const Thermostat: React.FC = () => {
   const { thermostat, temperatureHistory } = useThermostat()
   return (
     <Container>
-      <TypographyComponent type='h1'>Directory</TypographyComponent>
-
       <Content>
-        <TextContent>
-          {thermostat?.map((temperature) => (
-            <TypographyComponent type='h2' key={temperature.id}>
-              {temperature.data}
+        {thermostat?.map((temperature) => (
+          <TextContent key={temperature.id}>
+            <TypographyComponent type='h1'>
+              Thermostat {temperature.id}
             </TypographyComponent>
-          ))}
-          <ChartComponent temperatureHistory={temperatureHistory} />
-        </TextContent>
+            <TypographyComponent type='h2'>
+              {temperature.data}º C
+            </TypographyComponent>
+          </TextContent>
+        ))}
       </Content>
+      <ChartComponent temperatureHistory={temperatureHistory} />
     </Container>
   )
 }
