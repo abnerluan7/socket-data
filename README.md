@@ -1,7 +1,7 @@
-### Set port
-.env
+### Set socket url
+
 ```
-PORT=8081
+cp .env.example .env.local
 ```
 
 ## Project setup
@@ -24,6 +24,14 @@ npm start
 yarn start
 ```
 
-Open [http://localhost:8081](http://localhost:8081) to view it in the browser.
+### Tests
+
+```
+npm run test
+# or
+yarn test
+```
+
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.
