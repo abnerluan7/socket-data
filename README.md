@@ -17,9 +17,9 @@ yarn install
 ### Compiles and hot-reloads for development
 
 ```
-npm start
+npm run dev
 # or
-yarn start
+yarn dev
 ```
 
 ### Tests
