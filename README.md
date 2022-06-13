@@ -1,4 +1,8 @@
-### Set socket url
+### Use Yarn
+
+have a problem with npm for the eslint and ts dependencies
+
+### Set Env
 
 ```
 cp .env.example .env.local
@@ -9,32 +13,23 @@ cp .env.example .env.local
 In the project directory, you can run:
 
 ```
-npm install
-# or
-yarn install
+yarn
 ```
 
 ### Compiles and hot-reloads for development
 
 ```
-npm run dev
-# or
 yarn dev
 ```
+
+Open [http://localhost:8081](http://localhost:8081) to view it in the browser.
+
+The page will reload if you make edits.
 
 ### Tests
 
 ```
-npm run test
-# or
 yarn test
 ```
-
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.
-
-### Backend
-
-Open [https://github.com/and-dzh3/ws-srv](https://github.com/and-dzh3/ws-srv)
-
+### Git
+For commit you need to brighten eslint
